@@ -9,6 +9,16 @@ exports.getProducts = (req, res, next) => {
     });
   });
 };
+exports.getOneProduct=(req,res,next)=>{
+  const pid=req.params.productId;
+  console.log(pid)
+   Product.fetchById(pid,product=>{
+    console.log(product.title)
+   res.render('shop/product-detail',{product:product,pageTitle:'product',path:'/products'})
+   })
+  
+
+}
 
 exports.getIndex = (req, res, next) => {
   Product.fetchAll(products => {
