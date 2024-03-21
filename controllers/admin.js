@@ -57,3 +57,9 @@ const utitle = req.body.title;
   res.redirect('/');
   
 }
+exports.postDeleteProduct=(req,res,next)=>{
+  const id=req.body.id;
+  console.log("id",id);
+  Product.deleteById(id);
+  res.redirect("/");
+}

@@ -58,4 +58,14 @@ module.exports = class Product {
         cb(product);
       });
   }
+  static deleteById(id){
+    console.log(id);
+    getProductsFromFile(products=>{
+      const remaingProducts=products.filter(item=>item.id!=id);
+      console.log(remaingProducts);
+      fs.writeFile(p,JSON.stringify(remaingProducts),err=>{
+        console.log(err);
+      })
+    })
+  }
 };
